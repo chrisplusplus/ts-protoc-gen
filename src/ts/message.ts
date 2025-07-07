@@ -22,6 +22,7 @@ import { printEnum } from "./enum";
 import { printOneOfDecl } from "./oneof";
 import { printExtension } from "./extensions";
 import JSType = FieldOptions.JSType;
+import * as google_protobuf_any_pb from "google-protobuf/google/protobuf/any_pb";
 
 function hasFieldPresence(field: FieldDescriptorProto, fileDescriptor: FileDescriptorProto): boolean {
   if (field.getLabel() === FieldDescriptorProto.Label.LABEL_REPEATED) {
@@ -232,6 +233,7 @@ export function printMessage(fileName: string, exportMap: ExportMap, messageDesc
   });
 
   printer.printIndentedLn(`serializeBinary(): Uint8Array;`);
+  printer.printIndentedLn(`pack(typeUrlPrefix?: string): google_protobuf_any_pb.Any;`);
   printer.printIndentedLn(`toObject(includeInstance?: boolean): ${messageName}.${objectTypeName};`);
   printer.printIndentedLn(`static toObject(includeInstance: boolean, msg: ${messageName}): ${messageName}.${objectTypeName};`);
   printer.printIndentedLn(`static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};`);

@@ -20,6 +20,7 @@ export function printFileDescriptorTSD(fileDescriptor: FileDescriptorProto, expo
 
   printer.printEmptyLn();
   printer.printLn(`import * as jspb from "google-protobuf";`);
+  printer.printLn(`import * as google_protobuf_any_pb from "google-protobuf/google/protobuf/any_pb";`);
 
   fileDescriptor.getDependencyList().forEach((dependency: string) => {
     const pseudoNamespace = filePathToPseudoNamespace(dependency);
