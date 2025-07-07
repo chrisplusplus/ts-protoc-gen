@@ -2,6 +2,7 @@
 // file: proto/examplecom/casing.proto
 
 import * as jspb from "google-protobuf";
+import * as google_protobuf_any_pb from "google-protobuf/google/protobuf/any_pb";
 
 export class CasingMessage extends jspb.Message {
   getTitlecase(): string;
@@ -20,6 +21,7 @@ export class CasingMessage extends jspb.Message {
   setLeadingunderscoretitlecase(value: string): void;
 
   serializeBinary(): Uint8Array;
+  pack(typeUrlPrefix?: string): google_protobuf_any_pb.Any;
   toObject(includeInstance?: boolean): CasingMessage.AsObject;
   static toObject(includeInstance: boolean, msg: CasingMessage): CasingMessage.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
